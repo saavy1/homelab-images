@@ -1,5 +1,5 @@
 FROM caddy:builder AS builder
 RUN xcaddy build --with github.com/caddy-dns/cloudflare
 
-FROM ghcr.io/caddyserver/ingress:latest
+FROM ghcr.io/caddy/ingress:latest
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
