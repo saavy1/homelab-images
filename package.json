@@ -1,0 +1,18 @@
+{
+  "name": "homelab-images",
+  "private": true,
+  "workspaces": [
+    "docker-discord-bot",
+    "homelab-elysia"
+  ],
+  "scripts": {
+    "dev:bot": "bun run --cwd docker-discord-bot dev",
+    "dev:api": "bun run --cwd homelab-elysia dev",
+    "build:bot": "bun build docker-discord-bot/src/index.ts --outdir docker-discord-bot/dist --target bun",
+    "build:api": "bun build homelab-elysia/src/index.ts --outdir homelab-elysia/dist --target bun",
+    "typecheck": "bun run --cwd docker-discord-bot typecheck && bun run --cwd homelab-elysia typecheck",
+    "typecheck:bot": "bun run --cwd docker-discord-bot typecheck",
+    "typecheck:api": "bun run --cwd homelab-elysia typecheck",
+    "db:push": "bun run --cwd homelab-elysia db:push"
+  }
+}
